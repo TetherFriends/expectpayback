@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다중 페이지</title>
+    <style>
+        .container {
+            width: 1200px;
+            height: 700px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .page {
+            display: none;
+        }
+        .current-page {
+            display: block;
+        }
+        /* 다음 버튼 스타일 */
+        .next-button {
+            margin-top: 20px;
+        }
+        /* 거래소 이미지 스타일 */
+        .exchange-button {
+            display: none; /* 라디오 버튼 대체를 위해 숨김 */
+        }
+      .exchange-container {
+    display: flex;
+    flex-direction: column; /* 자식 요소들을 세로 방향으로 정렬 */
+    align-items: center; /* 가로 정렬을 중앙으로 설정 */
+}
+         .exchange-label {
+        display: flex;
+        align-items: center; /* 세로 중앙 정렬 */
+        justify-content: center; /* 가로 중앙 정렬 */
+        width: 300px; /* 버튼의 너비 */
+        height: 55px; /* 버튼의 높이 */
+        border: 2px solid #ccc; /* 버튼 테두리 스타일 */
+        margin-right: 10px; /* 각 버튼 사이의 여백 */
+        cursor: pointer;
+        text-align: center;
+        margin-bottom: 10px; /* 버튼 아래쪽 여백 */ 
+        border-radius: 10px; /* 버튼 테두리 둥글기 */
+    }
+
+    .exchange-label img {
+        max-width: 100%; /* 이미지가 버튼의 최대 너비를 벗어나지 않도록 함 */
+        max-height: 30px; /* 이미지의 최대 높이 */
+        margin: auto; /* 위아래 여백을 자동으로 설정하여 수직 가운데 정렬 */
+        display: block; /* 이미지를 블록 요소로 설정하여 여백을 적용 */
+    }
+        .exchange-radio {
+            display: none; /* 라디오 버튼 대체를 위해 숨김 */
+        }
+        .exchange-radio:checked + .exchange-label {
+            border-color: #0067FF;
+        }
+        .input-field {
+            width: calc(100% - 108.64px);
+    height: 64px;
+    padding: 0 24px;
+    border-radius: 5px;
+    border: solid 1px #dadada;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    color: #222
+        }
+      .next-button {
+    margin-top: 20px;
+    width: 300px;
+    height: 60px;
+    border: none;
+    background-color: #0067FF;
+    color: #fff;
+    border-radius: 10px; 
+    cursor: pointer; /* 커서를 포인터로 설정 */
+}
+</style>
+</head>
+<body>
+    <div class="container">
+<div id="page2" class="page current-page">
+    <img src="https://cdn.imweb.me/thumbnail/20240328/19be77dfb50f3.png" alt="Image for Page 2">
+    <h1>거래소를 선택해 주세요</h1>
+    <p>지금 사용하고 있는 거래소를 하나 선택해 주세요!</p><br>
+    <div class="exchange-container">
+        <div class="exchange-group" style="display: flex; flex-wrap: wrap;">
+            <input type="radio" id="exchange1" name="exchange" class="exchange-radio" onclick="selectExchange(1)">
+            <label for="exchange1" class="exchange-label">
+                <img src="https://cdn.imweb.me/thumbnail/20240318/7405a9d8d9530.png" alt="Exchange 1" style="width: auto; height: 30px;">
+            </label>
+
+            <input type="radio" id="exchange2" name="exchange" class="exchange-radio" onclick="selectExchange(2)">
+            <label for="exchange2" class="exchange-label">
+                <img src="https://cdn.imweb.me/thumbnail/20240318/ba365a4d4133d.png" alt="Exchange 2" style="width: auto; height: 30px;">
+            </label>
+
+            <input type="radio" id="exchange3" name="exchange" class="exchange-radio" onclick="selectExchange(3)">
+            <label for="exchange3" class="exchange-label">
+                <img src="https://cdn.imweb.me/thumbnail/20240318/586bf67010b1d.png" alt="Exchange 3" style="width: auto; height: 30px;">
+            </label>
+        </div>
+
+        <div class="exchange-group" style="display: flex; flex-wrap: wrap;">
+            <input type="radio" id="exchange4" name="exchange" class="exchange-radio" onclick="selectExchange(4)">
+            <label for="exchange4" class="exchange-label">
+                <img src="https://cdn.imweb.me/thumbnail/20240319/7d8b7241d8db7.png" alt="Exchange 4" style="width: auto; height: 30px;">
+            </label>
+
+            <input type="radio" id="exchange5" name="exchange" class="exchange-radio" onclick="selectExchange(5)">
+            <label for="exchange5" class="exchange-label">
+                <img src="https://cdn.imweb.me/thumbnail/20240319/0ba05356a3890.jpg" alt="Exchange 5" style="width: auto; height: 30px;">
+            </label>
+
+            <input type="radio" id="exchange6" name="exchange" class="exchange-radio" onclick="selectExchange(6)">
+            <label for="exchange6" class="exchange-label">
+                <img src="https://cdn.imweb.me/thumbnail/20240318/fe28f330c33c8.png" alt="Exchange 6" style="width: auto; height: 30px;">
+            </label>
+        </div>
+    </div>
+
+    <button id="nextButton2" onclick="showPage(3)" class="next-button" disabled>다음</button>
+</div>
+
+ <div id="page3" class="page">
+            <img src="https://cdn.imweb.me/thumbnail/20240328/a2e442bef7c0a.png" alt="Image for Page 3">
+            <h1>진입 시드가 얼마나 되시나요?</h1>
+            <p>트레이더님의 예상 환급액을 분석해 볼까요? 여기서부터 30초면 끝나요!</p>
+            <label for="seed" style="display: none;">시드를 입력해주세요</label>
+            <input type="text" id="seed" name="seed" placeholder="시드를 입력해주세요" oninput="updateSeed()" class="input-field" required>
+            <span>USDT</span> <br>
+            <button id="nextButton3" onclick="showPage(4)" class="next-button" disabled>다음</button>
+        </div>
+
+        <div id="page4" class="page">
+            <img src="https://cdn.imweb.me/thumbnail/20240328/6f18abaf5a4bf.png" alt="Image for Page 4">
+            <h1>레버리지는 어느 정도 사용하시나요?</h1>
+            <p>평균 레버리지 배율을 알려주세요</p>
+            <label for="leverage" style="display: none;">레버리지를 입력해주세요</label>
+            <input type="text" id="leverage" name="leverage" placeholder="레버리지를 입력해주세요 (1-125)" oninput="updateLeverage()" class="input-field" required> <br>
+            <button id="nextButton4" onclick="showPage(5)" class="next-button" disabled>다음</button>
+        </div>
+
+        <div id="page5" class="page">
+            <img src="https://cdn.imweb.me/thumbnail/20240328/837a25caf8e80.png" alt="Image for Page 5">
+            <h1>매매 횟수를 입력해주세요</h1>
+            <p>하루 평균 매매 횟수를 알려주세요</p>
+            <label for="tradecount" style="display: none;">매매 횟수를 입력해주세요</label>
+            <input type="text" id="tradecount" name="tradecount" placeholder="매매 횟수를 입력해주세요" oninput="updateTradecount()" class="input-field" required> <br>
+            <button id="nextButton5" onclick="showPage(6)" class="next-button" disabled>다음</button>
+        </div>
+
+        <div id="page6" class="page">
+          <img src="https://cdn.imweb.me/thumbnail/20240328/5b2e0ebf9d500.png" alt="Image for Page 6">
+        <h1>테더프렌즈 예상 페이백</h1>
+        <div id="calculationResult"></div><br>
+        <button id="getPaybackButton" onclick="redirectToNaver()" class="next-button">페이백 받기</button>
+    </div>
+    </div>
+
+
+    <script>
+        var selectedExchange = 0;
+
+        function selectExchange(exchangeNumber) {
+            selectedExchange = exchangeNumber;
+            document.getElementById('nextButton2').disabled = false;
+        }
+      
+        function updateSeed() {
+            var seedInput = document.getElementById('seed');
+            var nextButton3 = document.getElementById('nextButton3');
+            if (seedInput.value >= 1) {
+                nextButton3.disabled = false;
+            } else {
+                nextButton3.disabled = true;
+            }
+        }
+
+        function updateLeverage() {
+            var leverageInput = document.getElementById('leverage');
+            var nextButton4 = document.getElementById('nextButton4');
+            var leverageValue = parseInt(leverageInput.value);
+            if (leverageValue >= 1 && leverageValue <= 125) {
+                nextButton4.disabled = false;
+            } else {
+                nextButton4.disabled = true;
+            }
+        }
+
+        function updateTradecount() {
+            var tradecountInput = document.getElementById('tradecount');
+            var nextButton5 = document.getElementById('nextButton5');
+            var tradecountValue = parseInt(tradecountInput.value);
+            if (tradecountValue >= 1) {
+                nextButton5.disabled = false;
+            } else {
+                nextButton5.disabled = true;
+            }
+        }
+
+        function calculateResult() {
+            var seed = parseInt(document.getElementById('seed').value);
+            var leverage = parseInt(document.getElementById('leverage').value);
+            var tradecount = parseInt(document.getElementById('tradecount').value);
+            var result = 0;
+
+            // 거래소에 따른 계산식 적용
+            switch(selectedExchange) {
+                case 1:
+                    result = seed * leverage * tradecount * 0.0008 * 0.2 * 0.5;
+                    break;
+                case 2:
+                    result = seed * leverage * tradecount * 0.0008 * 0.4 * 0.5;
+                    break;
+                case 3:
+                    result = seed * leverage * tradecount * 0.0012 * 0.333 * 0.5;
+                    break;
+                case 4:
+                    result = seed * leverage * tradecount * 0.0010 * 0.5 * 0.5;
+                    break;
+                case 5:
+                    result = seed * leverage * tradecount * 0.0010 * 0.6 * 0.5;
+                    break;
+                case 6:
+                    result = seed * leverage * tradecount * 0.0008 * 0.5 * 0.5;
+                    break;
+                default:
+                    break;
+            }
+
+            // 계산 결과를 페이지에 표시
+            document.getElementById('calculationResult').innerText = 오전 12:13 2024-04-19오전 12:13 2024-04-19result.toFixed(2) + " USDT";
+        }
+
+        function resetValues() {
+            // 입력값 초기화
+            document.getElementById('seed').value = "";
+            document.getElementById('leverage').value = "";
+            document.getElementById('tradecount').value = "";
+
+            // 선택한 거래소 초기화
+            var selectedExchangeRadio = document.querySelector('.exchange-radio:checked');
+            if (selectedExchangeRadio) {
+                selectedExchangeRadio.checked = false;
+            }
+
+            // 다음 버튼 비활성화
+            document.getElementById('nextButton2').disabled = true;
+
+            // 페이지 초기화
+            showPage(1);
+        }
+
+        function showPage(pageNumber) {
+            // 모든 페이지를 숨김
+            var pages = document.querySelectorAll('.page');
+            pages.forEach(function(page) {
+                page.classList.remove('current-page');
+            });
+
+            // 선택한 페이지만 보여줌
+            var selectedPage = document.getElementById('page' + pageNumber);
+            selectedPage.classList.add('current-page');
+
+            // 페이지가 6일 때 결과 계산
+            if (pageNumber === 6) {
+                calculateResult();
+            }
+        }
+      
+      function redirectToNaver() {
+            window.open("https://www.naver.com", "_blank");
+        }
+    </script>
+</body>
+</html>
